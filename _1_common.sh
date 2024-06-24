@@ -1,6 +1,8 @@
 #! /bin/bash
 echo "Genel Kurulumlar"
 
+
+
 # User Variable
 UPDATED="Güncelleme"
 CLEANER="Temizleme"
@@ -12,8 +14,8 @@ CHMOD="Dosya izinleri ver"
 
 # System Variable
 
-
 # Updated
+
 sleep 2
 echo -e "\n### ${CHMOD} ###"
 read -p "Dosyalara izin vermek istiyor musunuz  E/H ? " chmodResult
@@ -33,6 +35,7 @@ then
 else
      echo -e "apt-get Update List Güncelleme Yapılmadı!!!\n "   
 fi
+
 
 # Updated
 sleep 2
@@ -81,6 +84,8 @@ else
      echo -e "Genel Bilgiler Gösterilmediı!!!\n "    
 fi
 
+
+
 # Yükleme
 sleep 2
 echo -e "\n### ${UPDATED} ###"
@@ -95,7 +100,7 @@ then
     sudo apt-get install openssh-server -y
     sudo apt install curl -y
     sudo apt install net-tools
-    sudo apt-get install nginx -y
+    # sudo apt-get install nginx -y
     sudo apt install curl -y
     sudo apt install nodejs -y
     node -v
@@ -104,11 +109,11 @@ else
      echo -e "Yükleme Yapılmadı!!!\n "   
 fi
 
-
 # system variable
 sleep 2
 echo -e "\n######  Port Yükleme ######"
 read -p  "Port aktif etmek istiyor musunuz? E / H " portedResult
+
 if [[ $portedResult == "E"  ||  $portedResult == "e" ]]
 then
 	echo   -e "\n######"  $PORT "######"
@@ -129,7 +134,6 @@ else
     echo -e "Genel Güncelleme Yapılmadı!!!\n "    
 fi 
 
-
 # Temizlik
 sleep 2
 echo -e "\n######  Cache Temizleme  ######"
@@ -140,6 +144,7 @@ then
 	echo -e "Temizlik Başlandı... "  
     sudo apt-get clean
     sudo apt-get autoremove -y
+    sudo apt-get update && sudo apt-get upgrade -y
 else 
     echo -e "Temizlik Yapılmadı!!!\n "    
 fi
